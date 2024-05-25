@@ -1,0 +1,67 @@
+﻿<Window x:Class="Library_Project_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Project_1"
+        mc:Ignorable="d"
+        Title="Sign Up" Height="450" Width="930">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Grid rows definition -->
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <!-- Grid columns definition -->
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="174*"/>
+            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="212*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- AccountType ComboBox -->
+        <ComboBox  Name="AccountType" Loaded="ComboBox_Loaded" Grid.Row="1" Grid.Column="1" Margin="20,12,20,29" SelectedIndex="0" >
+            <ComboBox.Resources>
+                <!-- Center align ComboBox items -->
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+                <!-- Center align ComboBox itself -->
+                <Style TargetType="ComboBox">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </ComboBox.Resources>
+            <ComboBoxItem Content="Student" />
+            <ComboBoxItem Content="Teacher" />
+        </ComboBox>
+
+        <!-- Labels and input fields -->
+        <Label Content="Account Type" Margin="30,10,16,30" Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13"/>
+        <TextBox Name="txtNameSignUp" Grid.Column="1" Margin="15,6,10,51" Grid.Row="2" TextAlignment="Center"/>
+        <TextBox Name="txtEmailSignUp" Grid.Column="3" Grid.Row="2" TextWrapping="Wrap" Margin="25,3,20,51" TextAlignment="Center"/>
+        <PasswordBox Name="txtPasswordSignUp1" Grid.Column="1" Grid.Row="3"  Margin="15,3,10,51" />
+        <Label Content="Name" Margin="30,6,16,51" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"/>
+        <Label Content="Email" Margin="36,3,18,51" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Grid.Column="2"/>
+        <Label Content="Password" Margin="31,3,15,51" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15"/>
+        <PasswordBox Name="txtPasswordSignUp2" Grid.Column="3" Grid.Row="3"  Margin="25,3,20,51"/>
+        <Label Content="Confirm Password" Margin="32,3,22,51" Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Grid.Column="2"/>
+
+        <!-- Sign up and Clear buttons -->
+        <Button Grid.Column="2" Content="Sign up" Margin="26,10,30,10" Grid.Row="4" Click="SignUp_Click"/>
+        <Button Grid.Column="3" Content="Clear" Margin="28,10,28,10" Grid.Row="4" Click="Clear_Click"/>
+
+        <!-- Go to Login button -->
+        <Button Grid.Column="2" Content="Sign in instead" Margin="146,10,146,33" Grid.Row="5" Click="GoToLogin_Click" Foreground="#FF42A4FF" BorderThickness="0,0,0,0" FontFamily="Segoe UI Semilight" FontSize="15" Background="{x:Null}" Grid.ColumnSpan="2"/>
+
+        <!-- Error labels -->
+        <Label Name="NameError" Content="" Margin="85,51,188,9" Grid.Row="2" Foreground="Red" Grid.ColumnSpan="3" VerticalContentAlignment="Center"/>
+        <Label Name="EmailError" Content="" Margin="93,51,5,9" Grid.Row="2" FontSize="14" Foreground="Red" Grid.Column="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center"/>
+        <Label Name="PasswordError1" Content="" Margin="78,53,14,10" Grid.Row="3" FontSize="14" Foreground="Red" Grid.ColumnSpan="3" VerticalContentAlignment="Center"/>
+
+    </Grid>
+</Window>

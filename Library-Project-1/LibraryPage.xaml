@@ -1,0 +1,137 @@
+﻿<Window x:Class="Library_Project_1.LibraryPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Library_Project_1"
+        mc:Ignorable="d"
+        Loaded="LibraryPage_Load"
+        Title="Library" Height="720" Width="1085">
+    <Grid>
+        <TabControl>
+            <!-- Books Tab -->
+            <TabItem Header="Books">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160*"/>
+                        <ColumnDefinition Width="176*"/>
+                        <ColumnDefinition Width="172*"/>
+                        <ColumnDefinition Width="571*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="91*"/>
+                        <RowDefinition Height="67*"/>
+                        <RowDefinition Height="67*"/>
+                        <RowDefinition Height="451*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="BookData" IsReadOnly="True" FontSize="17" Margin="10,10,10,10" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="4"/>
+                    <!-- Enter Book ID Label -->
+                    <Label Content="Enter Book ID" Margin="10,36,10,15" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <!-- Book ID TextBox -->
+                    <TextBox Name="txtBookID" Margin="10,39,16,14" TextWrapping="Wrap" Grid.Column="1" TextAlignment="Center" FontSize="14" TextChanged="SelectBook_TextChanged" />
+                    <!-- Add Book Button -->
+                    <Button Grid.Column="2" Content="Add book" Margin="11,38,11,16" FontSize="15" Click="AddBook_Click"/>
+                    <!-- Search Label -->
+                    <Label Content="Search" Margin="10,13,10,15" VerticalContentAlignment="Center" FontSize="15" Grid.Row="1" HorizontalContentAlignment="Center"/>
+                    <!-- Search TextBox -->
+                    <TextBox x:Name="txtAllBookSearch" TextChanged="SearchAllBooks_TextChanged" Margin="10,16,16,15" TextWrapping="Wrap" TextAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+                    <!-- Search ComboBox -->
+                    <ComboBox x:Name="comboSearch" Grid.Column="2" Margin="24,18,21,19" SelectedIndex="0" Grid.Row="1" >
+                        <ComboBox.Resources>
+                            <Style TargetType="{x:Type ComboBoxItem}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                            <Style TargetType="{x:Type ComboBox}">
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </ComboBox.Resources>
+
+                        <ComboBoxItem Content="Title" />
+                        <ComboBoxItem Content="Author" />
+                        <ComboBoxItem Content="Category" />
+                    </ComboBox>
+                    <!-- Notifications Label -->
+                    <Label Name="lblNotifications" Grid.Column="3" Content="" Margin="7,16,10,35" Grid.RowSpan="3" Background="White" HorizontalContentAlignment="Center" FontSize="14"/>
+                    <!-- Borrowing Information Label -->
+                    <Label x:Name="BorrowingInformation" Content="" Margin="54,11,54,13" Grid.Row="2" Grid.ColumnSpan="3"/>
+                </Grid>
+            </TabItem>
+
+            <!-- My books Tab -->
+            <TabItem Header="My books">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="115*"/>
+                        <ColumnDefinition Width="164*"/>
+                        <ColumnDefinition Width="142*"/>
+                        <ColumnDefinition Width="658*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="59*"/>
+                        <RowDefinition Height="59*"/>
+                        <RowDefinition Height="116*"/>
+                        <RowDefinition Height="423*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Name="MyBookData" IsReadOnly="True" Margin="10,10,10,10" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="17" Grid.Row="4" Grid.ColumnSpan="4"/>
+                    <!-- Return Label -->
+                    <Label Content="Return " Margin="17,9,27,15" VerticalContentAlignment="Center" Grid.Row="1" FontSize="15"/>
+                    <!-- Return TextBox -->
+                    <TextBox x:Name="txtReturn" TextChanged="Return_TextChanged" Margin="12,14,6,13" TextWrapping="Wrap" TextAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+                    <!-- Return Button -->
+                    <Button Grid.Column="2" Content="Return" Margin="17,12,20,16" Grid.Row="1" Click="Return_Click"/>
+                    <!-- Return Information Label -->
+                    <Label x:Name="lblReturnInformation" Content="" Margin="51,8,31,11" Grid.Row="2" Grid.ColumnSpan="3"/>
+                </Grid>
+            </TabItem>
+
+            <!-- My account Tab -->
+            <TabItem Header="My account">
+                <Grid Background="#FFE6E6E6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="189*"/>
+                        <ColumnDefinition Width="282*"/>
+                        <ColumnDefinition Width="319*"/>
+                        <ColumnDefinition Width="289*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.25*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="0.75*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <!-- Name TextBox -->
+                    <TextBox x:Name="txtNameHome" Margin="23,28,43,23" TextWrapping="Wrap" FontSize="16" Grid.Column="1" Grid.Row="1"/>
+                    <!-- Email TextBox -->
+                    <TextBox x:Name="txtEmailHome" Margin="23,28,43,23" TextWrapping="Wrap" FontSize="16" Grid.Row="2" Grid.Column="1"/>
+                    <!-- Name Label -->
+                    <Label Content="Name" Margin="10,18,10,20" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="1"/>
+                    <!-- Email Label -->
+                    <Label Content="Email" Margin="10,28,10,23" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2"/>
+                    <!-- Update Account Button -->
+                    <Button Content="Update My Account Info" Margin="23,15,43,15" FontSize="16" BorderBrush="{x:Null}" BorderThickness="1,1,1,1" Background="Gainsboro" Foreground="Black" Grid.Row="3" Grid.Column="1" Click="Update_Button_Click"/>
+                    <!-- Change Account Settings Label -->
+                    <Label Content="Change Account Settings" Margin="10,71,135,4" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF009CFF" Grid.ColumnSpan="2"/>
+                    <!-- Delete Account Button -->
+                    <Button Content="Delete My Account" Margin="25,29,30,35" Foreground="Red" FontSize="16" FontWeight="Bold" BorderThickness="2,2,2,2" BorderBrush="Red"  Grid.Row="4" Grid.Column="3" Click="DeletAccount_Click"/>
+                    <!-- Welcome Label -->
+                    <Label x:Name="lblWelcomeName" Content="Welcome" Margin="125,11,125,50" FontSize="24" FontWeight="Bold" VerticalContentAlignment="Center" Foreground="#FF12EC15" Grid.ColumnSpan="4" HorizontalContentAlignment="Center" />
+                    <!-- ID TextBox -->
+                    <TextBox x:Name="txtID" Margin="23,28,43,23" TextWrapping="Wrap" FontSize="20" IsEnabled="False" Background="#FFA5A5A5" Grid.Column="3" Grid.Row="1" TextAlignment="Center" FontWeight="Bold"/>
+                    <!-- Your ID Label -->
+                    <Label Content="Your ID" Margin="138,19,47,19" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Column="2" Grid.Row="1"/>
+                    <!-- Log out Button -->
+                    <Button Content="Log out" Margin="25,29,30,35" Foreground="Red" FontSize="16" FontWeight="Bold" BorderThickness="2,2,2,2" BorderBrush="Red"  Grid.Row="5" Grid.Column="3" Click="LogOut_Click"/>
+                    <!-- Update Error Label -->
+                    <Label Name="lblUpdateError" Grid.Column="2" Margin="168,18,38,30" Grid.Row="2" Grid.ColumnSpan="2" VerticalContentAlignment="Center" FontSize="14" Foreground="Red"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>

@@ -1,0 +1,49 @@
+﻿<Window x:Class="Library_Project_1.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library_Project_1"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Grid rows definition -->
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="112*"/>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="58*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <!-- Grid columns definition -->
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Email input field -->
+        <TextBox Name="txtEmailName" Margin="25,11,56,61" TextAlignment="Center" FontSize="14" Grid.Row="1" Grid.Column="2"/>
+
+        <!-- Password input field -->
+        <PasswordBox Name="txtPassword" Margin="25,11,54,61" FontSize="14" Grid.Row="2" Grid.Column="2"/>
+
+        <!-- Welcome label -->
+        <Label Content="Welcome" Margin="197,20,195,27" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="25" FontFamily="shasenem-bokan" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
+
+        <!-- Login button -->
+        <Button Content="Login" Margin="121,11,123,7" FontSize="20" FontFamily="Roboto Lt" Grid.Row="3" Click="Login_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
+
+        <!-- Create Account button -->
+        <Button Content="Create Account" Margin="121,6,123,17" FontSize="20" FontFamily="Roboto Lt" Background="{x:Null}" BorderThickness="0,0,0,0" BorderBrush="#FF5EA3FF" Foreground="#FF3730FF" IsDefault="True" Click="GOToSignUp_Click" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1"/>
+
+        <!-- Error labels -->
+        <Label Name="EmailError" Margin="3,68,8,12" Grid.Row="1" Grid.Column="2"/>
+        <Label x:Name="PasswordError" Margin="3,69,8,5" Grid.Row="2" Grid.Column="2"/>
+
+        <!-- Labels for input field descriptions -->
+        <Label Grid.Column="1" Content="Enter your ID or Email" Margin="70,11,12,53" Grid.Row="1" FontSize="20" FontFamily="Segoe UI Variable Text Semilight" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="1" Content="Enter your Password" Margin="70,10,12,61" Grid.Row="2" FontSize="20" FontFamily="Segoe UI Variable Text Semilight" VerticalContentAlignment="Center"/>
+    </Grid>
+</Window>
